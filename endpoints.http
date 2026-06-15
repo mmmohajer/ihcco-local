@@ -1,0 +1,18 @@
+@baseUrl = http://localhost/api
+
+### Health Check
+GET {{baseUrl}}/
+
+###
+
+### People Count
+GET {{baseUrl}}/people-counter/count
+
+###
+
+POST http://localhost/api/people-counter/count/reset
+Content-Type: application/json
+
+{
+  "people_count": 0
+}
