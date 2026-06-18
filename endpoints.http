@@ -1,4 +1,4 @@
-@baseUrl = http://localhost/api
+@baseUrl = http://localhost:8000/api
 
 ### Health Check
 GET {{baseUrl}}/
@@ -10,7 +10,7 @@ GET {{baseUrl}}/people-counter/count
 
 ###
 
-POST http://localhost/api/people-counter/count/reset
+POST http://localhost:8000/api/people-counter/count/reset
 Content-Type: application/json
 
 {

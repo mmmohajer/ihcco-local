@@ -20,7 +20,7 @@ const Main = () => {
   });
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost/ws/people-counter");
+    const ws = new WebSocket("ws://localhost:8000/ws/people-counter");
     return wsHandler(ws, setState);
   }, []);
 

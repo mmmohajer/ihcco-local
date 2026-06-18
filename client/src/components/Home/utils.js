@@ -28,7 +28,7 @@ export const handleReset = async (state, setState) => {
     return;
   }
 
-  await fetch("/api/people-counter/count/reset", {
+  await fetch("http://localhost:8000/api/people-counter/count/reset", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

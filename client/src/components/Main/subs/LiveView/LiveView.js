@@ -19,7 +19,7 @@ const LiveView = () => {
 
       <div className={styles.videoWrap}>
         <img
-          src="/api/people-counter/live-view"
+          src="http://localhost:8000/api/people-counter/live-view"
           alt="Live camera view"
           className={styles.video}
         />
