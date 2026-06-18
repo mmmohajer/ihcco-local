@@ -6,7 +6,7 @@ from ultralytics import YOLO
 
 from app import state
 
-
+# RTSP_URL = "rtsp://Application:ihcco58app@99.209.90.226:5541/streaming/channels/1"
 RTSP_URL = "rtsp://Application:ihcco58app@192.168.0.16:5541/streaming/channels/1"
 
 
