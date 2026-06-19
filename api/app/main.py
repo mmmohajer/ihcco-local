@@ -5,7 +5,7 @@ from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.people_counter.router import router as people_counter_router
-from app.people_counter.utils import counter_service
+from app.people_counter.utils import counter_service, counter_service_new
 from app.ws_router import router as ws_router
 
 
@@ -13,7 +13,8 @@ from app.ws_router import router as ws_router
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     thread = threading.Thread(
-        target=counter_service.run_people_counter,
+        # target=counter_service.run_people_counter,
+        target=counter_service_new.run_people_counter,
         # target=counter_service.start_test_counter,
         daemon=True
     )
