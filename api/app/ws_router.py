@@ -17,7 +17,9 @@ async def people_counter_ws(websocket: WebSocket):
     try:
         while True:
             await websocket.send_json({
-                "people_count": state.get_people_count()
+                "people_count": state.get_people_count(),
+                "max_people_count": state.get_max_people_count(),
+                "total_entries_today": state.get_total_entries_today(),
             })
             await asyncio.sleep(1)
     except WebSocketDisconnect:
