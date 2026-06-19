@@ -15,6 +15,8 @@ import RecentActivity from "./subs/RecentActivity";
 const Main = () => {
   const [state, setState] = useState({
     count: 0,
+    maxCount: 0,
+    totalEntries: 0,
     status: "Disconnected",
     resetValue: "",
   });
@@ -48,7 +50,12 @@ const Main = () => {
           </div>
         </div>
 
-        <TopStats count={state.count} status={state.status} />
+        <TopStats
+          count={state.count}
+          maxCount={state.maxCount}
+          totalEntries={state.totalEntries}
+          status={state.status}
+        />
 
         <div className={styles.grid}>
           <div className={styles.leftColumn}>
@@ -56,7 +63,7 @@ const Main = () => {
           </div>
 
           <div className={styles.rightColumn}>
-            <CountPanel count={state.count} />
+            <CountPanel count={state.count} maxCount={state.maxCount} />
             <ResetPanel state={state} setState={setState} />
             <RecentActivity count={state.count} status={state.status} />
           </div>

@@ -11,6 +11,8 @@ export const wsHandler = (ws, setState) => {
     setState((prevState) => ({
       ...prevState,
       count: data.people_count,
+      maxCount: data.max_people_count,
+      totalEntries: data.total_entries_today,
     }));
   };
 
@@ -38,16 +40,17 @@ export const handleReset = async (state, setState) => {
   }
 
   try {
-  await fetch("http://localhost:8000/api/people-counter/count/reset/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      people_count: value,
-    }),
-  })} catch(err) {
-    console.log(err)
+    await fetch("http://localhost:8000/api/people-counter/count/reset/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        people_count: value,
+      }),
+    });
+  } catch (err) {
+    console.log(err);
   }
 
   setState((prevState) => ({
