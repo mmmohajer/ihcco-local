@@ -17,9 +17,11 @@ Content-Type: application/json
   "people_count": 0
 }
 
+###
+
 POST {{baseUrl}}/people-counter/max-count/reset
 Content-Type: application/json
 
 {
-  "max_people_count": 0
+  "max_people_count": 10
 }
