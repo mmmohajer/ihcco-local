@@ -10,9 +10,16 @@ GET {{baseUrl}}/people-counter/count
 
 ###
 
-POST http://localhost:8000/api/people-counter/count/reset
+POST {{baseUrl}}/people-counter/count/reset
 Content-Type: application/json
 
 {
   "people_count": 0
+}
+
+POST {{baseUrl}}/people-counter/max-count/reset
+Content-Type: application/json
+
+{
+  "max_people_count": 0
 }

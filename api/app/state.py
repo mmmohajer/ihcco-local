@@ -91,3 +91,13 @@ def get_latest_frame():
             return None
 
         return latest_frame.copy()
+
+def set_max_people_count(value: int):
+    global max_people_count
+
+    with _lock:
+        _check_new_day()
+
+        max_people_count = max(value, 0)
+
+        return max_people_count

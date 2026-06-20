@@ -22,36 +22,25 @@ latest_raw_frame = None
 raw_frame_lock = threading.Lock()
 
 
-# entrance_zone = np.array([
-#     [300, 100],
-#     [500, 50],
-#     [650, 450],
-#     [400, 800],
-# ], np.int32)
 entrance_zone = np.array([
     [210, 100],
     [500, 50],
-    [820, 450],
-    [700, 900],
-    [630, 1050],
+    [900, 0],
+    [930, 450],
+    [950, 600],
+    [550, 600],
+    [500, 760]
 ], np.int32)
 
 
-# inside_zone = np.array([
-#     [650, 450],
-#     [500, 50],
-#     [1200, 50],
-#     [1200, 900],
-#     [400, 800],
-# ], np.int32)
 inside_zone = np.array([
-    [500, 50],
-    [1920, 50],
+    [900, 0],
+    [1920, 0],
     [1920, 1050],
-    [580, 1250],
-    [630, 1050],
-    [700, 900],
-    [820, 450],
+    [0, 1250],
+    [500, 760],
+    [550, 600],
+    [950, 600],
 ], np.int32)
 
 
@@ -193,7 +182,8 @@ def process_detection(frame, boxes, ids, tracking_status):
         x1, y1, x2, y2 = box
 
         center_x = int((x1 + x2) / 2)
-        center_y = int((y1 + y2) / 2)
+        # center_y = int((y1 + y2) / 2)
+        center_y = int(y1)
         point = (center_x, center_y)
 
         previous_zone = tracking_status.get(track_id, "unknown")

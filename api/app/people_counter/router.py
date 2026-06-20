@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.people_counter.schemas import CountResetRequest
+from app.people_counter.schemas import CountResetRequest, MaxCountResetRequest
 from app.people_counter import service
 
 
@@ -20,3 +20,7 @@ def reset_people_count(payload: CountResetRequest):
 @router.get("/live-view")
 def live_camera_view():
     return service.live_camera_view()
+
+@router.post("/max-count/reset")
+def reset_max_people_count(payload: MaxCountResetRequest):
+    return service.reset_max_people_count(payload)

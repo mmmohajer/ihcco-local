@@ -27,3 +27,12 @@ def live_camera_view():
         generate_camera_frames(),
         media_type="multipart/x-mixed-replace; boundary=frame",
     )
+
+def reset_max_people_count(payload):
+    new_max_count = state.set_max_people_count(payload.max_people_count)
+
+    return {
+        "people_count": state.get_people_count(),
+        "max_people_count": new_max_count,
+        "total_entries_today": state.get_total_entries_today(),
+    }
