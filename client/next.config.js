@@ -17,7 +17,7 @@ const nextConfig = {
   publicRuntimeConfig: {},
 
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "192.168.0.111"],
   },
 };
 

@@ -22,7 +22,14 @@ const Main = () => {
   });
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:8000/ws/people-counter");
+    // --------------------------------------------------
+    // --------------------------------------------------
+    const wsProtocol = window.location.protocol === "https:" ? "wss" : "ws";
+    const wsUrl = `${wsProtocol}://${window.location.hostname}:8000/ws/people-counter`;
+    // --------------------------------------------------
+    // --------------------------------------------------
+    // const wsUrl = "ws://localhost:8000/ws/people-counter"
+    const ws = new WebSocket(wsUrl);
     return wsHandler(ws, setState);
   }, []);
 

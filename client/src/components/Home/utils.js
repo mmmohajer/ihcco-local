@@ -28,7 +28,14 @@ export const handleReset = async (state, setState) => {
     return;
   }
 
-  await fetch("http://localhost:8000/api/people-counter/count/reset", {
+  // --------------------------------------------------
+  // --------------------------------------------------
+  const apiProtocol = window.location.protocol === "https:" ? "https" : "http";
+  const apiUrl = `${apiProtocol}://${window.location.hostname}:8000/api/people-counter/count/reset`;
+  // --------------------------------------------------
+  // --------------------------------------------------
+  // const apiUrl = "http://localhost:8000/api/people-counter/count/reset"
+  await fetch(apiUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
